@@ -147,7 +147,6 @@ def get_vote_statistics(db: Session):
 
 
 def get_candidates_votes_for_chart(db: Session):
-    """Retorna datos de candidatos y votos para gráfica"""
     candidates_votes = (
         db.query(models.Candidate.name, func.count(models.Vote.id).label("votes"))
         .outerjoin(models.Vote)

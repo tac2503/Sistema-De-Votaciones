@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 def display_votes_chart():
-    """Genera y muestra gráfica de votos por candidato"""
+
     try:
         db = SessionLocal()
         data = crud.get_candidates_votes_for_chart(db)
@@ -19,14 +19,11 @@ def display_votes_chart():
             print("No hay datos de candidatos para graficar aún.\n")
             return
 
-        # Preparar datos para pandas
         candidates_names = [row[0] for row in data]
         votes_counts = [row[1] or 0 for row in data]
 
-        # Crear DataFrame
         df = pd.DataFrame({"Candidato": candidates_names, "Votos": votes_counts})
 
-        # Crear gráfica
         plt.figure(figsize=(10, 6))
         plt.bar(df["Candidato"], df["Votos"], color="steelblue", edgecolor="navy")
         plt.xlabel("Candidatos", fontsize=12, fontweight="bold")
@@ -37,7 +34,6 @@ def display_votes_chart():
         plt.grid(axis="y", alpha=0.3)
         plt.tight_layout()
 
-        # Mostrar gráfica
         plt.show()
 
     except Exception as e:
@@ -75,9 +71,9 @@ def read_root():
 
 if __name__ == "__main__":
     print("\n" + "=" * 60)
-    print("🚀 SISTEMA DE VOTACIONES API")
+    print(" SISTEMA DE VOTACIONES API")
     print("=" * 60)
-    print("📌 API:           http://127.0.0.1:8000")
-    print("📚 Documentación: http://127.0.0.1:8000/docs")
+    print(" API:           http://127.0.0.1:8000")
+    print(" Documentación: http://127.0.0.1:8000/docs")
     print("=" * 60 + "\n")
     uvicorn.run(app, host="127.0.0.1", port=8000)
