@@ -127,6 +127,10 @@ Documentación: http://127.0.0.1:8000/docs
 
 ![alt text](image-2.png)
 
+## Ejemplo de la gráfica generada
+
+![alt text](image-3.png)
+
 ##  Estructura del Proyecto
 
 ```
